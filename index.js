@@ -5,7 +5,7 @@ const express = require('express')
 
 const app = express();
 
-const url = 'https://www.nike.com/ca/w/new-3n82y'
+const url = 'https://www.theguardian.com/international'
 
 axios(url)
     .then (response => {
@@ -13,7 +13,7 @@ axios(url)
         const $ = cheerio.load(html)
         const list = []
 
-        $('.product-card', html).each(function() {
+        $('.fc-item__title', html).each(function() {
         const title = $(this).text()
         const url = $(this).find('a').attr('href')
         list.push({
